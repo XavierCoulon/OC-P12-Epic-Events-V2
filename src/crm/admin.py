@@ -3,23 +3,26 @@ from django.contrib import admin
 from crm.models import Contract, Event, Customer, EventStatus
 
 
-admin.site.register(Customer)
+@admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+	list_display = (
+		"company",
+		"first_name",
+		"last_name",
+		"email",
+		"phone",
+		"mobile",
+		"date_created",
+		"date_updated",
+		"sales_contact",
+	)
 
+	# def has_change_permission(self, request, obj=None):
+	# 	if obj:
+	# 		if obj.sales_contact == request.user:
+	# 			return True
+	# 	return False
 
-# @admin.register(Customer)
-# class CustomerAdmin(admin.ModelAdmin):
-# 	list_display = (
-# 		"company",
-# 		"first_name",
-# 		"last_name",
-# 		"email",
-# 		"phone",
-# 		"mobile",
-# 		"date_created",
-# 		"date_updated",
-# 		"sales_contact",
-# 	)
-#
 
 @admin.register(Contract)
 class ContractAdmin(admin.ModelAdmin):

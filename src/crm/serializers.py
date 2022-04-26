@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, ValidationError
 
 from crm.models import Customer, Contract, Event
 
@@ -19,3 +19,8 @@ class EventSerializer(ModelSerializer):
 	class Meta:
 		model = Event
 		fields = "__all__"
+
+	def validate_contract(self, value):
+		if not value.signed:
+			raise ValidationError("Contract has not been signed, impossible to create an event.")
+		return value
