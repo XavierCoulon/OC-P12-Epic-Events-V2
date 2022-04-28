@@ -3,9 +3,17 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class CustomerType(models.Model):
+	type = models.CharField(max_length=128, blank=False)
+
+	def __str__(self):
+		return self.type
+
+
 class Customer(models.Model):
 
 	company = models.CharField(unique=True, max_length=128, blank=False)
+	type = models.ForeignKey(to=CustomerType, on_delete=models.PROTECT, related_name="customer_type")
 	first_name = models.CharField(max_length=128, blank=True)
 	last_name = models.CharField(max_length=128, blank=False)
 	email = models.EmailField(max_length=128, blank=False)
@@ -30,6 +38,12 @@ class Contract(models.Model):
 class EventStatus(models.Model):
 	status = models.CharField(max_length=128, blank=False)
 
+	class Meta:
+		verbose_name_plural = "Event status"
+
+	def __str__(self):
+		return self.status
+
 
 class Event(models.Model):
 
@@ -41,6 +55,3 @@ class Event(models.Model):
 	notes = models.TextField(max_length=255, blank=True)
 	date_created = models.DateField(auto_now_add=True)
 	date_updated = models.DateField(auto_now=True)
-
-
-

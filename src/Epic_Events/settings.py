@@ -151,10 +151,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
-}
+GRAPH_MODELS = {'all_applications': True, 'group_models': True}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

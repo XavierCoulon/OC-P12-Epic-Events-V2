@@ -1,5 +1,8 @@
 from rest_framework.permissions import BasePermission, SAFE_METHODS
 
+# Permissions added to DjangoModelPermission:
+# only owner of an object (Customer, Contract, Event) can change / delete it.
+
 
 class CustomerPermission(BasePermission):
 
