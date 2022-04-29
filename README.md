@@ -1,67 +1,62 @@
-OC - SoftDesk - Bug tracking API
+OC - Epic Events - CRM
 =
 
-<u>Openclassrooms - DA Python - Project 10 :</u><br>
+<u>Openclassrooms - DA Python - Project 12 :</u><br>
 
-API RESTFul providing a bug tracking system.
+CRM with access via API and Admin site.
 <br>
-Use of Django Rest Framework + SQLIte database.
-## 1. <u>List of endpoints</u> :
+Use of Django Rest Framework + PostgreSQL database.
 
-1. Sign Up
-POST
-2. Login
-POST
-3. Login Refresh
-POST
-4. Create a project
-PUT
-5. Update a project
-GET
-6. Get a specific projet
-GET
-7. Get list of projects
-DEL
-8. Delete a project
-POST
-9. Create a contributor on a project
-GET
-10. Get all contributors of a project
-DEL
-11. Delete a contributor of a project
-POST
-12. Create an issue on a project
-PATCH
-13. Update issue on project
-GET
-14. Get issues on project
-DEL
-15. Delete issue on project
-POST
-16. Create comment on issue
-PATCH
-17. Update comment on issue
-GET
-18. Get comments on an issue
-GET
-19. Get a specific comment on an issue
-DEL
-20. Delete comment on issueinscription et connexion au site,
+## 1. <u> Documentation</u>
 
-## 2. <u> Documentation</u>
+- Initial OC requirements available in the folder [doc](doc),
+- Full API documentation available [here](https://documenter.getpostman.com/view/19799080/UyrEive3) (hosted by Postman),including permissions by endpoint,
+- ERD diagram auto generated, using [django-extensions](https://django-extensions.readthedocs.io/en/latest/) + [Graphviz](http://www.graphviz.org/).
 
-- Initial OC requirements available in the folder [doc](src/doc).
-- Full API document available [here](https://documenter.getpostman.com/view/19799080/UVsJxnRD).
+![image](doc/ERD_Diagram.png)
+
+
+## 2. <u>List of endpoints</u> :
+
+- POST: Login
+- POST: Login Refresh
+- POST: Create a customer
+- PATCH: Update a customer
+- GET: Search a customer
+- POST: Create contract
+- PATCH: Update a contract
+- GET: Search contract
+- POST: Create event
+- PATCH: Update an event
+- GET: Search event
 
 
 ## 3. <u> Set Up</u>
 
 ```bash
-git clone https://github.com/XavierCoulon/OC-P10-SoftDesk.git
-cd P10_SoftDesk
+git clone https://github.com/XavierCoulon/OC-P12-Epic-Events-V2.git
+cd P12_Epic_Events_V2
 python3.9 -m venv .env
 source .env/bin/activate
 pip install -r requirements.txt
 python manage.py runserver
 ```
-API available on http://127.0.0.1:8000/
+PostgreSQL settings in settings.py:
+````
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'xxx',
+        'USER': 'xxxxxxxx',
+        'PASSWORD': '********',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
+````
+Start the server on your localhost and create a superuser:
+````
+python manage.py runserver
+python manage.py createsuperuser
+````
+Admin available on http://127.0.0.1:8000/admin/
