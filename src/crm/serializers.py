@@ -1,4 +1,3 @@
-from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer, ValidationError
 
 from crm.models import Customer, Contract, Event
