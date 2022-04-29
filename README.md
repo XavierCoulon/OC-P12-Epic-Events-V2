@@ -13,7 +13,7 @@ Use of Django Rest Framework + PostgreSQL database.
 - Full API documentation available [here](https://documenter.getpostman.com/view/19799080/UyrEive3) (hosted by Postman),including permissions by endpoint,
 - ERD diagram auto generated, using [django-extensions](https://django-extensions.readthedocs.io/en/latest/) + [Graphviz](http://www.graphviz.org/).
 
-![image](doc/ERD_Diagram.png)
+![image](doc/ERD_Diagram_auto.png)
 
 
 ## 2. <u>List of endpoints</u> :
