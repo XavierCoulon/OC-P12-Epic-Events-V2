@@ -18,7 +18,9 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 
-from crm.views import CustomerViewset, ContractViewset, EventViewset
+from customer.views import CustomerViewset
+from contract.views import ContractViewset
+from event.views import EventViewset
 
 router = routers.SimpleRouter()
 router.register("customers", CustomerViewset, basename="customers")

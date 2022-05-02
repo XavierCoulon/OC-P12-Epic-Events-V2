@@ -15,6 +15,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from datetime import timedelta
 
+from django.contrib.admin import AdminSite
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -43,7 +45,9 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'rest_framework_simplejwt',
-    'crm',
+    'customer',
+    'contract',
+    'event'
 
 ]
 
@@ -171,3 +175,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+AdminSite.empty_value_display = "coucou"
