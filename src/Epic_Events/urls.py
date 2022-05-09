@@ -27,9 +27,15 @@ router.register("customers", CustomerViewset, basename="customers")
 router.register("contracts", ContractViewset, basename="contracts")
 router.register("events", EventViewset, basename="events")
 
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path("api/", include(router.urls)),
+    path('sentry-debug/', trigger_error),
 ]

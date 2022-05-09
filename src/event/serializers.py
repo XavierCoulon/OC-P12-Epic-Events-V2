@@ -12,7 +12,7 @@ class EventSerializer(ModelSerializer):
 		response = super().to_representation(instance)
 		response["contract"] = instance.contract.customer.company
 		response["support_contact"] = instance.support_contact.username
-		response["status"] = instance.status.status
+		response["status"] = instance.status.label
 		return response
 
 	def validate_contract(self, value):

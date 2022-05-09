@@ -5,7 +5,6 @@ from customer.models import Customer, CustomerType
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-	empty_value_display = '-empty-'
 	list_display = (
 		"company",
 		"first_name",

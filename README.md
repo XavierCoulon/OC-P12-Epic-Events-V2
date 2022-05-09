@@ -22,12 +22,15 @@ Use of Django Rest Framework + PostgreSQL database.
 - POST: Login Refresh
 - POST: Create a customer
 - PATCH: Update a customer
+- DELETE: Delete a customer
 - GET: Search a customer
 - POST: Create contract
 - PATCH: Update a contract
+- DELETE: Delete a contract
 - GET: Search contract
 - POST: Create event
 - PATCH: Update an event
+- DELETE: Delete an event
 - GET: Search event
 
 
